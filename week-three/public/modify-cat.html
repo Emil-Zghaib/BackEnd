@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8" />
+        <title>Example</title>
+        <link href="./css/ui2.css" rel="stylesheet" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="./js/serialize.js"></script>
+        <script src="./js/modify-cat.js"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <nav>
+                <ul class="grid grid-cols-4 gap-2 p-2">
+                    <li><a href="front.html">Frontpage</a></li>
+                    <li><a href="add-user.html">Add user</a></li>
+                    <li><a href="add-cat.html">Add cat</a></li>
+                </ul>
+            </nav>
+            <hr />
+            <div class="max-w-md mx-auto">
+                <form
+                    action="http://localhost:3000/cat"
+                    class="grid grid-cols-1 gap-4 p-2"
+                    enctype="multipart/form-data"
+                    id="modCatForm"
+                    method="post"
+                >
+                    <h3 class="text-lg">Edit cat</h3>
+                    <hr />
+                    <div>
+                        <label for="name"
+                            >Name <span aria-label="required">*</span></label
+                        >
+                        <input
+                            class="light-border invalid:border-red-500 valid:border-green-500"
+                            id="name"
+                            name="name"
+                            placeholder="Name"
+                            required
+                            type="text"
+                        />
+                        <span aria-live="text-red-500" class="error"></span>
+                    </div>
+
+                    <div>
+                        <label for="birthdate"
+                            >Birthdate
+                            <span aria-label="required">*</span></label
+                        >
+                        <input
+                            class="light-border invalid:border-red-500 valid:border-green-500"
+                            id="birthdate"
+                            name="birthdate"
+                            placeholder="Birthdate: YYYY-MM-DD"
+                            required
+                            type="date"
+                        />
+                        <span aria-live="text-red-500" class="error"></span>
+                    </div>
+
+                    <div>
+                        <label for="weight"
+                            >Weight <span aria-label="required">*</span></label
+                        >
+                        <input
+                            class="light-border invalid:border-red-500 valid:border-green-500"
+                            id="weight"
+                            max="100"
+                            min="0"
+                            name="weight"
+                            placeholder="Weight"
+                            required
+                            step="0.1"
+                            type="number"
+                        />
+                        <span aria-live="text-red-500" class="error"></span>
+                    </div>
+
+                    <div>
+                        <label for="ownerId"
+                            >Owner <span aria-label="required">*</span></label
+                        >
+                        <select
+                            class="light-border invalid:border-red-500 valid:border-green-500 add-owner"
+                            id="ownerId"
+                            name="ownerId"
+                            required
+                        >
+                            <option value="">Select owner</option>
+                        </select>
+                        <span aria-live="text-red-500" class="error"></span>
+                    </div>
+                    <input name="id" type="hidden" />
+                    <input name="fileName" type="hidden" />
+                    <button
+                        class="light-border invalid:border-red-500 valid:border-green-500"
+                        type="submit"
+                    >
+                        Save
+                    </button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
